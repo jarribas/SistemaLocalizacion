@@ -25,6 +25,7 @@ public class MyService extends Service {
 	private static final long UPDATE_INTERVAL = 1000;
 	public static ServiceUpdateUIListener UI_UPDATE_LISTENER;
 	int la = 43269612,lo = -2496943;
+	int comunicacion=1;
 	
 	
 	GeoPoint g_point = new GeoPoint(35410000, 139460000);
@@ -52,10 +53,27 @@ public class MyService extends Service {
 	public void onCreate() {
 		super.onCreate();
 		Log.d("", "dentro de onCreate de service");
+		//ComunicacionFacade();
 		startServer();
 		_startService();
 	}
 
+	public void ComunicacionFacade() {
+		
+		switch(comunicacion){
+		case 1: //Comunicacion = new CommTCP();
+			startServer();
+			_startService();
+		break;
+		case 2: //Comunicacion = new CommSMS();
+		break;
+		case 3:
+		break;
+		default:
+		break;
+		}
+		
+	}
 	@Override
 	public void onDestroy() {
 		super.onDestroy();

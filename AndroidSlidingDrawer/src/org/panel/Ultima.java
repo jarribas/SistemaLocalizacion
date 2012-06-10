@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Locale;
 import java.util.StringTokenizer;
+// cambios echos por javiMartins en feature
 
 /*import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -40,7 +41,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ZoomControls;
 
-
+/**
+ * Clase que es utilizada para representer graficamente la 
+ * ultima posicion registrada desde la pulsera. Dicha posicion esta 
+ * compuesta por la latitud y la longitud.
+ * <p>
+ * @version 1.0, 10/06/04
+ * @author Jon Arribas, Javier Martin
+ */
 
 public class Ultima extends MapActivity {
 	 // Called when the activity is first created. 
@@ -56,6 +64,11 @@ public class Ultima extends MapActivity {
 		String add = "";
 		
 	    @Override 
+	    
+	    /** 
+	     * Dibuja la ultima posicion en el mapa tras haber leido las 
+	     * coordenadas en el fichero correspondiente una vez tratados dichos valores.
+	     */
 	    public void onCreate(Bundle savedInstanceState) {
 	    	
 	        super.onCreate(savedInstanceState);
@@ -251,6 +264,13 @@ public class Ultima extends MapActivity {
 	    protected boolean isRouteDisplayed() {
 	        return false;
 	    }*/
+	    
+	    /** 
+	     * Indica si existe el fichero de texto
+	     * @param archivos indica el sistema de ficheros del movil
+	     * @param archbusca el nombre del archivo que queremos encontrar
+	     * @return true si el archivo existe o false si no existe.
+	     */
 	    
 	    private boolean existe(String[] archivos,String archbusca)
 	    {

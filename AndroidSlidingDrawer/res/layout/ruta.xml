@@ -10,7 +10,7 @@
         android:layout_width="fill_parent" 
         android:layout_height="414dp"
         android:layout_weight="1.23"
-        android:apiKey="0l5u3ikIwakT5TfCT87CbygovHf93bMLa2C4zjQ"
+        android:apiKey="0xjKJd3M2Kr7jd9fkJmUd3gTWQhkk79PpZevcNQ"
         android:clickable="true"
         android:enabled="true" >
     </com.google.android.maps.MapView>

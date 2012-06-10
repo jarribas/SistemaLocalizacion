@@ -34,6 +34,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 //Commit 2
+
+/**
+ * Una clase para dibujar los Overlays del mapa, junto a los dialogos de introduccion de datos.
+ * @version 1.0, 10/06/04
+ * @author Jon Arribas, Javier Martin
+ */
 public class ItemizedOverlay extends com.google.android.maps.ItemizedOverlay {
 	
 	 
@@ -43,28 +49,46 @@ public class ItemizedOverlay extends com.google.android.maps.ItemizedOverlay {
 	Drawable drawable;
 	ItemizedOverlay itemizedOverlay;
 	 boolean OK = false;
-	 
+	
+	 /** 
+	  * Constructor de la clase ItemizedOverlay
+	  */
 	public ItemizedOverlay(Drawable defaultMarker) {
 		super(boundCenterBottom(defaultMarker));
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
+	 /** 
+     * Crea el Overlay en la posicion indicada del array
+     * @return el valor del overlay.
+     */
 	protected OverlayItem createItem(int i) {
 	  return mOverlays.get(i);
 	}
 
-	@Override
+	 /** 
+     * Metodo para saber el tamaño del array del Overlay.
+     * @return el tamaño del array overlay.
+     */
 	public int size() {
 		// TODO Auto-generated method stub
 		return mOverlays.size();
 	}
+	/** 
+     * Metodo para añadir y mostrar el overlay en pantalla.
+     * @param El overlay
+     */
 	public void addOverlay(OverlayItem overlay) {
 	    mOverlays.add(overlay);
 	    populate();
 	}
 	
-	
+	/** 
+     * Metodo que al hacer click en pantalla dibuja el marcador(overlay) e inicia los dialogos
+     * para insertar el radio y dibujarlo.
+     * @param point El punto que hemos clickado en la pantalla
+     * @param mapView El mapa, para obtener el contexto
+     */
 	public boolean onTap(GeoPoint point, MapView mapView)
 	{
 		
@@ -117,6 +141,12 @@ public class ItemizedOverlay extends com.google.android.maps.ItemizedOverlay {
 	    return true;
 	}
 	
+	/** 
+     * Metodo que lanza el dialogo de comprobacion del centro
+     * @param contexto El contexto del mapa
+     * @param point El punto que hemos clickado en pantalla
+     * @param mapView El mapa
+     */
 	private void showAddDialog(final Context contexto, final GeoPoint point, final MapView mapView) {
 
 		final String TAG = "test";
@@ -136,6 +166,9 @@ public class ItemizedOverlay extends com.google.android.maps.ItemizedOverlay {
 		Button cancelButton = (Button) dialogView
 		.findViewById(R.id.cancel_button);
 
+		/** 
+	     * Metodo que se ocupa del Listener del boton añadir(OK) del dialogo de comprobacion
+	     */
 		addButton.setOnClickListener(new OnClickListener() {
 		// @Override
 		public void onClick(View v) {
@@ -205,7 +238,9 @@ public class ItemizedOverlay extends com.google.android.maps.ItemizedOverlay {
 			        
 		}
 		});
-
+		/** 
+	     * Metodo que se ocupa del Listener del boton cancelar del dialogo de comprobacion
+	     */
 		cancelButton.setOnClickListener(new OnClickListener() {
 		// @Override
 		public void onClick(View v) {
@@ -217,7 +252,12 @@ public class ItemizedOverlay extends com.google.android.maps.ItemizedOverlay {
 
 		}
 	
-	
+	/** 
+     * Metodo lanza el dialogo de introduccion del radio, y lo escribe en un fichero de texto
+     * @param contexto El contexto del mapa
+     * @param point El punto que hemos clickado en pantalla
+     * @param mapView El mapa
+     */
 	private void showRadiusDialog(final Context contexto, final GeoPoint point, final MapView mapView) {
 
 		final String TAG = "test";
@@ -235,7 +275,9 @@ public class ItemizedOverlay extends com.google.android.maps.ItemizedOverlay {
 
 		Button addButton = (Button) dialogView.findViewById(R.id.add_button_radio);
 		Button cancelButton = (Button) dialogView.findViewById(R.id.cancel_button_radio);
-
+		/** 
+	     * Metodo que se ocupa del Listener del boton añadir(OK) del dialogo del radio
+	     */
 		addButton.setOnClickListener(new OnClickListener() {
 		// @Override
 		public void onClick(View v) {
@@ -283,6 +325,10 @@ public class ItemizedOverlay extends com.google.android.maps.ItemizedOverlay {
 				    
 		}
 		});
+		
+		/** 
+	     * Metodo que se ocupa del Listener del boton cancelar del dialogo del radio
+	     */
 
 		cancelButton.setOnClickListener(new OnClickListener() {
 		// @Override

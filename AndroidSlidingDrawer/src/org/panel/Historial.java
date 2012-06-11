@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import android.widget.EditText;
 //borrado interpolator
+//cambio en feature
 /**
  * Una clase para representar el historial medico del paciente.
  * @version 1.0, 10/06/04

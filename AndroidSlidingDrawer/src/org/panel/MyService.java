@@ -62,7 +62,7 @@ public class MyService extends Service {
 		
 		switch(comunicacion){
 		case 1: //Comunicacion = new CommTCP();
-			startServer();
+			
 			_startService();
 		break;
 		case 2: //Comunicacion = new CommSMS();
@@ -86,8 +86,10 @@ public class MyService extends Service {
 			new TimerTask() {
 				public void run() {
 					//count++;
+					startServer();
 					la = la - 1000;
 					lo = lo + 1000;
+					
 					//updateCoordenadas();
 					Log.d("", "service running");
 					handler.sendEmptyMessage(0);

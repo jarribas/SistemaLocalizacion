@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
+//Comentario dev
 public class Main extends Activity {	
     /** Called when the activity is first created. */
 	private EditText etBody2;
